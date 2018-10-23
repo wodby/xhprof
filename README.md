@@ -1,4 +1,4 @@
-# PHP Xhprof traces basic viewer.
+# Xhprof traces viewer
 
 [![Build Status](https://travis-ci.com/wodby/xhprof.svg?branch=master)](https://travis-ci.org/wodby/xhprof)
 [![Docker Pulls](https://img.shields.io/docker/pulls/wodby/xhprof.svg)](https://hub.docker.com/r/wodby/xhprof)
