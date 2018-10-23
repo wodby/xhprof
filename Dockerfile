@@ -24,6 +24,9 @@ RUN set -ex; \
 
 COPY docker-php-ext-tideways_xhprof.ini.tmpl /etc/gotpl/
 
+# For backward compatibility only.
+COPY docker-php-ext-tideways_xhprof.ini.tmpl /etc/gotpl/docker-php-ext-tideways.ini.tmpl
+
 USER wodby
 
 EXPOSE 8080

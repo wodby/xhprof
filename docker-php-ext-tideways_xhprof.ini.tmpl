@@ -2,4 +2,4 @@
 {{ if getenv "PHP_XHPROF" }}
 extension = tideways_xhprof.so
 {{ end }}
-xhprof.output_dir = /mnt/files/private
+xhprof.output_dir = {{ getenv "PHP_XHPROF_OUTPUT_DIR" "/mnt/files/private" }}
