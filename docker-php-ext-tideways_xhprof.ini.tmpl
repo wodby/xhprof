@@ -1,0 +1,7 @@
+{{ if getenv "PHP_XHPROF" }}
+[xhprof]
+extension = tideways_xhprof.so
+{{ if getenv "PHP_XHPROF_OUTPUT_DIR" }}
+xhprof.output_dir = {{ getenv "PHP_XHPROF_OUTPUT_DIR" }}
+{{ end }}
+{{ end }}

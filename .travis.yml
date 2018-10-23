@@ -1,0 +1,11 @@
+language: bash
+
+env:
+  - PHP_VER=7.2 TAGS=7.2,7,latest
+
+script:
+  - make
+  - make test
+
+after_success:
+  - . "${TRAVIS_BUILD_DIR}/release.sh"
