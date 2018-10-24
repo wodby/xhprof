@@ -6,6 +6,8 @@ ENV XHPROF_COMMIT='0bbf2a2ac34f495e42aa852293fe0ed821659047'
 
 USER root
 
+COPY xhprof_runs.php.patch /var/www/html/
+
 RUN set -ex; \
     \
     apk add --update \
@@ -20,12 +22,11 @@ RUN set -ex; \
     mv /tmp/xhprof/xhprof_lib /var/www/html/; \
     chown -R wodby:wodby /var/www/html/*; \
     chmod -R 755 /var/www/html/*; \
+    \
+    patch -d /var/www/html/xhprof_lib/utils/ < /var/www/html/xhprof_runs.php.patch; \
+    rm /var/www/html/xhprof_runs.php.patch; \
+    \
     rm -rf /tmp/*
-
-COPY docker-php-ext-tideways_xhprof.ini.tmpl /etc/gotpl/
-
-# For backward compatibility only.
-COPY docker-php-ext-tideways_xhprof.ini.tmpl /etc/gotpl/docker-php-ext-tideways.ini.tmpl
 
 USER wodby
 
