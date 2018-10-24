@@ -3,7 +3,7 @@ ARG BASE_IMAGE_TAG
 FROM wodby/php:${BASE_IMAGE_TAG}
 
 ENV XHPROF_COMMIT='0bbf2a2ac34f495e42aa852293fe0ed821659047' \
-    PHP_XHPROF_OUTPUT_DIR='/mnt/files/private'
+    PHP_XHPROF_OUTPUT_DIR='/mnt/files/private/xhprof'
 
 USER root
 
