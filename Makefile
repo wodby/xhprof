@@ -4,18 +4,16 @@ PHP_VER ?= 7.1
 
 BASE_IMAGE_TAG = $(PHP_VER)
 REPO = wodby/xhprof
-NAME = xhprof-$(PHP_VER)
+NAME = xhprof
 
-TAG = $(PHP_VER)
+ifneq ($(STABILITY_TAG),)
+    override TAG := $(STABILITY_TAG)
+else
+    TAG = latest
+endif
 
 ifneq ($(BASE_IMAGE_STABILITY_TAG),)
     BASE_IMAGE_TAG := $(BASE_IMAGE_TAG)-$(BASE_IMAGE_STABILITY_TAG)
-endif
-
-ifneq ($(STABILITY_TAG),)
-    ifneq ($(TAG),latest)
-        override TAG := $(TAG)-$(STABILITY_TAG)
-    endif
 endif
 
 .PHONY: build test push shell run start stop logs clean release

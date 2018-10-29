@@ -1,7 +1,7 @@
 language: bash
 
 env:
-  - PHP_VER=7.1 TAGS=7.1,7,latest
+  - TAGS=latest
 
 script:
   - make

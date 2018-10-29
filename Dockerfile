@@ -12,13 +12,13 @@ COPY xhprof_runs.php.patch /var/www/html/
 RUN set -ex; \
     \
     apk add --update \
-        font-bitstream-type1=1.0.3-r0 \
-        ghostscript-fonts=8.11-r1 \
-        graphviz=2.40.1-r1; \
+        font-bitstream-type1 \
+        ghostscript-fonts \
+        graphviz; \
     \
-    wget -nv https://github.com/phacility/xhprof/archive/"${XHPROF_COMMIT}".zip -O /tmp/xhprof.zip; \
+    wget -nv "https://github.com/phacility/xhprof/archive/${XHPROF_COMMIT}.zip" -O /tmp/xhprof.zip; \
     unzip /tmp/xhprof.zip -d /tmp; \
-    mv /tmp/xhprof-"${XHPROF_COMMIT}" /tmp/xhprof; \
+    mv /tmp/xhprof-* /tmp/xhprof; \
     mv /tmp/xhprof/xhprof_html /var/www/html/; \
     mv /tmp/xhprof/xhprof_lib /var/www/html/; \
     chown -R wodby:wodby /var/www/html/*; \
