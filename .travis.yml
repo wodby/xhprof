@@ -1,12 +1,12 @@
 language: bash
 
 env:
-  global:
-    - TAGS=latest
+- BASE_IMAGE_STABILITY_TAG=4.11.11
+- TAGS=latest
 
 script:
-  - make
-  - make test
+- make
+- make test
 
 after_success:
-  - . "${TRAVIS_BUILD_DIR}/release.sh"
+- . "${TRAVIS_BUILD_DIR}/release.sh"
