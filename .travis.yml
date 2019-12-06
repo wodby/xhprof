@@ -1,7 +1,7 @@
 language: bash
 
 env:
-- BASE_IMAGE_STABILITY_TAG=4.13.0
+- BASE_IMAGE_STABILITY_TAG=4.13.1
 - TAGS=latest
 
 script:
