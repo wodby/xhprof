@@ -1,5 +1,6 @@
 -include env_make
 
+XHPROF_VER ?= 2.1.3
 PHP_VER ?= 7.2
 
 BASE_IMAGE_TAG = $(PHP_VER)
@@ -21,7 +22,10 @@ endif
 default: build
 
 build:
-	docker build -t $(REPO):$(TAG) --build-arg BASE_IMAGE_TAG=$(BASE_IMAGE_TAG) ./
+	docker build -t $(REPO):$(TAG) \
+		--build-arg BASE_IMAGE_TAG=$(BASE_IMAGE_TAG) \
+		--build-arg XHPROF_VER=$(XHPROF_VER) \
+		./
 
 test:
 	echo "test"

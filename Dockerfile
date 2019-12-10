@@ -2,7 +2,9 @@ ARG BASE_IMAGE_TAG
 
 FROM wodby/php:${BASE_IMAGE_TAG}
 
-ENV XHPROF_COMMIT='0bbf2a2ac34f495e42aa852293fe0ed821659047' \
+ARG XHPROF_VER
+
+ENV XHPROF_VER="${XHPROF_VER}" \
     PHP_XHPROF_OUTPUT_DIR='/mnt/files/private/xhprof'
 
 USER root
@@ -16,7 +18,7 @@ RUN set -ex; \
         ghostscript-fonts \
         graphviz; \
     \
-    wget -nv "https://github.com/phacility/xhprof/archive/${XHPROF_COMMIT}.zip" -O /tmp/xhprof.zip; \
+    wget -nv "https://github.com/longxinH/xhprof/archive/v${XHPROF_VER}.zip" -O /tmp/xhprof.zip; \
     unzip /tmp/xhprof.zip -d /tmp; \
     mv /tmp/xhprof-* /tmp/xhprof; \
     mv /tmp/xhprof/xhprof_html /var/www/html/; \
