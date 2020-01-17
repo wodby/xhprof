@@ -1,9 +1,10 @@
 language: bash
 
 env:
-- BASE_IMAGE_STABILITY_TAG=4.13.2
-- XHPROF_VER=2.1.3
-- TAGS=latest
+  global:
+  - BASE_IMAGE_STABILITY_TAG=4.13.2
+  - XHPROF_VER=2.1.3
+  - TAGS=latest
 
 script:
 - make
