@@ -2,7 +2,7 @@ language: bash
 
 env:
   global:
-  - BASE_IMAGE_STABILITY_TAG=4.16.3
+  - BASE_IMAGE_STABILITY_TAG=4.17.0
   - XHPROF_VER=2.2.0
   - TAGS=latest
 
