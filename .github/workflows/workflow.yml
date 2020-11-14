@@ -1,0 +1,25 @@
+name: Build docker image
+
+on:
+  push:
+    branches:
+    - master
+
+    tags:
+    - '*'
+
+env:
+  BASE_IMAGE_STABILITY_TAG: 4.17.1
+
+jobs:
+  xhprof-2:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions
+      with:
+        version: 2.2.0
+        tags: 2.2,2,latest
+        base_image_stability_tag: ${{ env.BASE_IMAGE_STABILITY_TAG }}
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
