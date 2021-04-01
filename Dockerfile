@@ -9,8 +9,6 @@ ENV XHPROF_VER="${XHPROF_VER}" \
 
 USER root
 
-COPY xhprof_runs.php.patch /var/www/html/
-
 RUN set -ex; \
     \
     apk add --update \
@@ -25,9 +23,6 @@ RUN set -ex; \
     mv /tmp/xhprof/xhprof_lib /var/www/html/; \
     chown -R wodby:wodby /var/www/html/*; \
     chmod -R 755 /var/www/html/*; \
-    \
-    patch -d /var/www/html/xhprof_lib/utils/ < /var/www/html/xhprof_runs.php.patch; \
-    rm /var/www/html/xhprof_runs.php.patch; \
     \
     rm -rf /tmp/*
 

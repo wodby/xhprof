@@ -19,3 +19,9 @@ Overview:
 Supported tags and respective `Dockerfile` links:
 
 - `2.3`, `2`, `latest` [_(Dockerfile)_](https://github.com/wodby/xhprof/tree/master/Dockerfile)
+
+## Environment variables
+
+| Variable     | Default Value  | Description            |
+| ------------ | -------------- | ---------------------- |
+| `XHPROF_OUTPUT_DIR`  |          | Output directory for xhprof runs |
