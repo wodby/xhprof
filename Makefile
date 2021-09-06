@@ -1,6 +1,6 @@
 -include env_make
 
-XHPROF_VER ?= 2.3.4
+XHPROF_VER ?= 2.3.5
 PHP_VER ?= 7.2
 
 BASE_IMAGE_TAG = $(PHP_VER)
