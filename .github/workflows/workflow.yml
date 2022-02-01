@@ -10,16 +10,20 @@ on:
 
 env:
   BASE_IMAGE_STABILITY_TAG: 4.27.6
+  DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+  DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
 jobs:
   xhprof-2:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - uses: docker/setup-qemu-action@v1
+      with:
+        platforms: amd64,arm64
+    - uses: docker/setup-buildx-action@v1
     - uses: ./.github/actions
       with:
         version: 2.3.5
         tags: 2.3,2,latest
-        base_image_stability_tag: ${{ env.BASE_IMAGE_STABILITY_TAG }}
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
+        platform: linux/amd64,linux/arm64
