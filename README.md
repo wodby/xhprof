@@ -3,7 +3,6 @@
 [![Build Status](https://github.com/wodby/xhprof/workflows/Build%20docker%20image/badge.svg)](https://github.com/wodby/xhprof/actions)
 [![Docker Pulls](https://img.shields.io/docker/pulls/wodby/xhprof.svg)](https://hub.docker.com/r/wodby/xhprof)
 [![Docker Stars](https://img.shields.io/docker/stars/wodby/xhprof.svg)](https://hub.docker.com/r/wodby/xhprof)
-[![Docker Layers](https://images.microbadger.com/badges/image/wodby/xhprof.svg)](https://microbadger.com/images/wodby/xhprof)
 
 ## Docker Images
 
@@ -22,6 +21,6 @@ Supported tags and respective `Dockerfile` links:
 
 ## Environment variables
 
-| Variable     | Default Value  | Description            |
-| ------------ | -------------- | ---------------------- |
-| `XHPROF_OUTPUT_DIR`  |          | Output directory for xhprof runs |
+| Variable            | Default Value | Description                      |
+|---------------------|---------------|----------------------------------|
+| `XHPROF_OUTPUT_DIR` |               | Output directory for xhprof runs |

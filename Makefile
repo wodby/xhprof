@@ -1,7 +1,7 @@
 -include env_make
 
 XHPROF_VER ?= 2.3.5
-PHP_VER ?= 7.2
+PHP_VER ?= 7.4
 
 BASE_IMAGE_TAG = $(PHP_VER)
 REPO = wodby/xhprof
