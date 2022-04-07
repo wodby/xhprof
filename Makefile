@@ -2,6 +2,7 @@
 
 XHPROF_VER ?= 2.3.5
 PHP_VER ?= 7.4
+ALPINE_VER ?= 3.13
 
 PLATFORM ?= linux/amd64
 
@@ -18,6 +19,8 @@ endif
 ifneq ($(BASE_IMAGE_STABILITY_TAG),)
     BASE_IMAGE_TAG := $(BASE_IMAGE_TAG)-$(BASE_IMAGE_STABILITY_TAG)
 endif
+
+BASE_IMAGE_TAG := $(BASE_IMAGE_TAG)-alpine$(ALPINE_VER)
 
 .PHONY: build buildx-build buildx-build-amd64 buildx-push test push shell run start stop logs clean release
 

@@ -18,6 +18,7 @@ Overview:
 Supported tags and respective `Dockerfile` links:
 
 - `2.3`, `2`, `latest` [_(Dockerfile)_](https://github.com/wodby/xhprof/tree/master/Dockerfile)
+- `2.3-alpine3.13`, `2-alpine3.13`, `alpine3.13` [_(Dockerfile)_](https://github.com/wodby/xhprof/tree/master/Dockerfile)
 
 All images built for `linux/amd64` and `linux/arm64`
 
