@@ -2,11 +2,11 @@
 
 XHPROF_VER ?= 2.3.5
 PHP_VER ?= 7.4
-ALPINE_VER ?= 3.13
+ALPINE_VER ?= 3.15
 
 PLATFORM ?= linux/amd64
 
-BASE_IMAGE_TAG = $(PHP_VER)
+BASE_IMAGE_TAG = $(PHP_VER)-alpine$(ALPINE_VER)
 REPO = wodby/xhprof
 NAME = xhprof
 
@@ -19,8 +19,6 @@ endif
 ifneq ($(BASE_IMAGE_STABILITY_TAG),)
     BASE_IMAGE_TAG := $(BASE_IMAGE_TAG)-$(BASE_IMAGE_STABILITY_TAG)
 endif
-
-BASE_IMAGE_TAG := $(BASE_IMAGE_TAG)-alpine$(ALPINE_VER)
 
 .PHONY: build buildx-build buildx-build-amd64 buildx-push test push shell run start stop logs clean release
 
