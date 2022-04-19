@@ -3,11 +3,10 @@
 XHPROF_VER ?= 2.3.5
 XHPROF_MINOR_VER ?= $(shell echo "${XHPROF_VER}" | grep -oE '^[0-9]+\.[0-9]+')
 PHP_VER ?= 7.4
-ALPINE_VER ?= 3.15
 
 PLATFORM ?= linux/amd64
 
-BASE_IMAGE_TAG = $(PHP_VER)-alpine$(ALPINE_VER)
+BASE_IMAGE_TAG = $(PHP_VER)
 REPO = wodby/xhprof
 NAME = xhprof
 
