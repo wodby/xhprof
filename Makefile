@@ -1,6 +1,6 @@
 -include env_make
 
-XHPROF_VER ?= 2.3.6
+XHPROF_VER ?= 2.3.7
 XHPROF_MINOR_VER ?= $(shell echo "${XHPROF_VER}" | grep -oE '^[0-9]+\.[0-9]+')
 PHP_VER ?= 7.4
 
