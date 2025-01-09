@@ -27,7 +27,7 @@ RUN set -ex; \
     chmod -R 755 /var/www/html/*; \
     \
     rm -rf /tmp/*; \
-    fc-cache
+    chmod o+w /var/cache/fontconfig
 
 USER wodby
 
