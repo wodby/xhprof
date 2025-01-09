@@ -5,6 +5,8 @@ FROM wodby/php:${BASE_IMAGE_TAG}
 ARG XHPROF_VER
 
 ENV XHPROF_VER="${XHPROF_VER}" \
+    # override to enable xhprof extension.
+    PHP_EXTENSIONS_DISABLE='xdebug,spx' \
     PHP_XHPROF_OUTPUT_DIR='/mnt/files/xhprof'
 
 USER root
