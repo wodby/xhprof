@@ -23,8 +23,8 @@ All images built for `linux/amd64` and `linux/arm64`
 
 ## Environment variables
 
-| Variable            | Default Value | Description                      |
-|---------------------|---------------|----------------------------------|
-| `PHP_XHPROF_OUTPUT_DIR` | `/mnt/files/private/xhprof`              | Output directory for xhprof runs |
+| Variable                | Default Value       | Description                      |
+|-------------------------|---------------------|----------------------------------|
+| `PHP_XHPROF_OUTPUT_DIR` | `/mnt/files/xhprof` | Output directory for xhprof runs |
 
 See all xhprof extension env vars at https://github.com/wodby/php/blob/master/8/templates/docker-php-ext-xhprof.ini.tmpl

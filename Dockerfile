@@ -5,7 +5,7 @@ FROM wodby/php:${BASE_IMAGE_TAG}
 ARG XHPROF_VER
 
 ENV XHPROF_VER="${XHPROF_VER}" \
-    PHP_XHPROF_OUTPUT_DIR='/mnt/files/private/xhprof'
+    PHP_XHPROF_OUTPUT_DIR='/mnt/files/xhprof'
 
 USER root
 
