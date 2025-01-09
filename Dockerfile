@@ -24,7 +24,8 @@ RUN set -ex; \
     chown -R wodby:wodby /var/www/html/*; \
     chmod -R 755 /var/www/html/*; \
     \
-    rm -rf /tmp/*
+    rm -rf /tmp/*; \
+    fc-cache
 
 USER wodby
 
