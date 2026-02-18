@@ -2,7 +2,7 @@
 
 XHPROF_VER ?= 2.3.10
 XHPROF_MINOR_VER ?= $(shell echo "${XHPROF_VER}" | grep -oE '^[0-9]+\.[0-9]+')
-PHP_VER ?= 8.1
+PHP_VER ?= 8.2
 
 PLATFORM ?= linux/amd64
 
