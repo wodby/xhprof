@@ -1,5 +1,9 @@
 -include env_make
 
+# Accept legacy build arguments during the image revision transition.
+BASE_IMAGE_REVISION ?= $(BASE_IMAGE_STABILITY_TAG)
+IMAGE_REVISION ?= $(STABILITY_TAG)
+
 XHPROF_VER ?= 2.3.10
 XHPROF_MINOR_VER ?= $(shell echo "${XHPROF_VER}" | grep -oE '^[0-9]+\.[0-9]+')
 PHP_VER ?= 8.2
@@ -12,14 +16,16 @@ NAME = xhprof
 
 TAG ?= $(XHPROF_MINOR_VER)
 
-ifneq ($(STABILITY_TAG),)
+ifneq ($(IMAGE_REVISION),)
     ifneq ($(TAG),latest)
-        override TAG := $(TAG)-$(STABILITY_TAG)
+        override TAG := $(TAG)-$(IMAGE_REVISION)
+    else
+        override TAG := $(IMAGE_REVISION)
     endif
 endif
 
-ifneq ($(BASE_IMAGE_STABILITY_TAG),)
-    BASE_IMAGE_TAG := $(BASE_IMAGE_TAG)-$(BASE_IMAGE_STABILITY_TAG)
+ifneq ($(BASE_IMAGE_REVISION),)
+    BASE_IMAGE_TAG := $(BASE_IMAGE_TAG)-$(BASE_IMAGE_REVISION)
 endif
 
 .PHONY: build buildx-build buildx-build-amd64 buildx-push test push shell run start stop logs clean release
