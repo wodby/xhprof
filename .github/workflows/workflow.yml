@@ -7,9 +7,10 @@ on:
 
     tags:
     - '*'
+    - '!*-r[0-9]*'
 
 env:
-  BASE_IMAGE_STABILITY_TAG: 4.71.5
+  BASE_IMAGE_REVISION: 4.71.5
 
 jobs:
   xhprof-2:
@@ -28,3 +29,18 @@ jobs:
         version: '2.3.10'
         tags: 2.3,2,latest
         platform: linux/amd64,linux/arm64
+
+  image-revision-aliases:
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/r')
+    needs: [ xhprof-2 ]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: image-revision-aliases-${{ github.ref }}
+      cancel-in-progress: false
+    steps:
+      - uses: wodby/images/.github/actions/image-revision-aliases@6a3956567002e48847338be97b4d955ee40ae7cb
+        with:
+          docker_username: ${{ secrets.DOCKER_USERNAME }}
+          docker_password: ${{ secrets.DOCKER_PASSWORD }}
