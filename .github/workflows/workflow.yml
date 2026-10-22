@@ -10,7 +10,7 @@ on:
     - '!*-r[0-9]*'
 
 env:
-  BASE_IMAGE_REVISION: r9
+  BASE_IMAGE_REVISION: r10
 
 jobs:
   xhprof-2:
