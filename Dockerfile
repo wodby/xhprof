@@ -14,6 +14,9 @@ ENV XHPROF_VER="${XHPROF_VER}" \
 
 USER root
 
+# Refresh inherited security fixes when rebuilding this image.
+RUN apk upgrade --no-cache
+
 RUN set -ex; \
     \
     apk add --update \
