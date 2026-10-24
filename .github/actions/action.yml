@@ -12,10 +12,11 @@ inputs:
     required: false
     default: linux/amd64
 runs:
-  using: "composite"
+  using: composite
   steps:
-  - name: Build image
+  - name: Build and test image
     id: brotli-image
+    shell: bash
     env:
       XHPROF_VER: ${{ inputs.version }}
       TAGS: ${{ inputs.tags }}
@@ -24,11 +25,19 @@ runs:
       set -e
       make buildx-build-amd64
       make test
-      make buildx-build
-      . $GITHUB_ACTION_PATH/release.sh
-    shell: bash
       echo "image=$(make --no-print-directory -s image-ref)" >> "$GITHUB_OUTPUT"
   - name: Verify Brotli security fixes
     uses: wodby/images/.github/actions/check-brotli@4d79323d1d62295e425a222e8cb23ccf843cbbea
     with:
       image: ${{ steps.brotli-image.outputs.image }}
+  - name: Publish verified image
+    if: github.event_name == 'push'
+    shell: bash
+    env:
+      XHPROF_VER: ${{ inputs.version }}
+      TAGS: ${{ inputs.tags }}
+      PLATFORM: ${{ inputs.platform }}
+    run: |
+      set -e
+      make buildx-build
+      . $GITHUB_ACTION_PATH/release.sh
