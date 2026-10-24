@@ -4,7 +4,7 @@ BASE_IMAGE_REPOSITORY := wodby/php
 BASE_IMAGE_VERSION_SUFFIX :=
 
 BASE_IMAGE_DIGEST_8.2 := sha256:608a1e06a71e74bd3b4455192df0c0a089db5c58fffac9fc48463b5a87effcc6
-BASE_IMAGE_DIGEST_8.2-r10 := sha256:a2432f9c4202d12c7aeb8819c2587da1224fb4e5e5bc1dc431d526d0657f01a4
+BASE_IMAGE_DIGEST_8.2-r11 := sha256:969a081bf3f0bca190336b06507928080854fdaa378bbebbe05ac6bfe25c9bf0
 
 # Fail before building when a version or variant has no reviewed pin.
 BASE_IMAGE = $(BASE_IMAGE_REPOSITORY):$(BASE_IMAGE_TAG)@$(or $(BASE_IMAGE_DIGEST_$(BASE_IMAGE_TAG)),$(error No base image digest for $(BASE_IMAGE_REPOSITORY):$(BASE_IMAGE_TAG); update base-images.mk))
