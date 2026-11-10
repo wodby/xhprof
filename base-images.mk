@@ -3,7 +3,7 @@
 BASE_IMAGE_REPOSITORY := wodby/php
 BASE_IMAGE_VERSION_SUFFIX :=
 
-BASE_IMAGE_DIGEST_8.2 := sha256:6221847dabe66e26c8e477e47dfbbb5a10248cd461f32a0844f7a74df7618ad5
+BASE_IMAGE_DIGEST_8.2 := sha256:f27dab772c88ebc248a5afad56cd2121d90c070384eede8e63f3e65e6336a513
 BASE_IMAGE_DIGEST_8.2-r13 := sha256:8162b7eb95448725cb9128e2d6db3ae0d56042d6df50ddccd54d3728187f812d
 
 # Fail before building when a version or variant has no reviewed pin.
